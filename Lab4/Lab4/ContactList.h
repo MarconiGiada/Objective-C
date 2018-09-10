@@ -12,8 +12,11 @@
 @interface ContactList : NSObject
 
 @property (nonatomic, strong) NSMutableArray *contactList;
+@property (nonatomic,strong) NSMutableArray *inputHistory;
 
 -(void) addContact: (Contact *) newContact;
 - (NSString *) description;
+- (Contact *) findContact: (NSString *) checkword;
+- (BOOL)findDuplicate:(NSString *) sameEmail;
 
 @end

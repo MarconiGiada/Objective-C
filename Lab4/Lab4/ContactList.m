@@ -31,6 +31,24 @@
     }
     return result;
 }
+  
+- (Contact *) findContact: (NSString *) checkword{
+    for(Contact *contact in _contactList){
+        if([[contact name] isEqualToString:checkword] || [[contact email] isEqualToString:checkword]){
+            return contact;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)findDuplicate:(NSString *) sameEmail{
+    for (Contact *contact in _contactList) {
+        if([[contact email] isEqualToString:sameEmail]){
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
 
 
 @end
