@@ -39,13 +39,14 @@
             }
         }
         rollCount --;
-        NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        NSLog(@"~~~~~~~~~~ Remain Rolls: %d ~~~~~~~~~~", rollCount);
+        NSLog(@"⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙  REMAIN ROLLS: %d  ⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙", rollCount);
     } else {
         // 5. check if the game is over (rollCount)
         //     - print the currentDeck and the score (the sum of faceValues) and GAME OVER
-        NSLog(@"           GAME OVER 😎               ");
-        NSLog(@"~ You cannot roll more than %d times ~", MAX_ROLL);
+        
+        NSLog(@"   You cannot roll more than %d times   ", MAX_ROLL);
+        NSLog(@"             GAME OVER 😎               ");
+        NSLog(@"⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙  TOTAL SCORE : %d  ⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙", score);
     }
     
 }
@@ -55,21 +56,36 @@
     for (Dice *die in _displayDice) {
         [currentDeck appendFormat:@" %@ " , [die description]];
     }
-    NSLog(@"%@", currentDeck);
+    NSLog(@"⍙⍙⍙⍙⍙           Current Deck             ⍙⍙⍙⍙⍙");
+    NSLog(@"⍙⍙⍙                  %@                     ⍙⍙", currentDeck);
 }
 
 - (void) holdDie: (NSUInteger) die {
     // 1. check if the die is already held
-    
+    Dice *selectedDie = [_displayDice objectAtIndex:die];
+    if(![selectedDie held]){
+        [selectedDie setHeld:true];
+    } else {
+        NSLog(@"Hey! You already hold this!");
+    }
+
     // 2. change the held property of the die
 }
 
 - (void) resetDie {
     // 3. iterate through each die, unhold every die
+    for(Dice *die in _displayDice) {
+        [die setHeld:false];
+    }
+    NSLog(@"You are not holding any dice anymore");
 }
 
 - (void) holdAll {
     // 4. iterate through each die, hold every die
+    for(Dice *die in _displayDice) {
+        [die setHeld:true];
+    }
+    NSLog(@"You are holding all the dice!");
 }
 
 - (void) displayScore {
@@ -79,12 +95,8 @@
     for(die in _displayDice) {
         score += [die faceValue];
     }
-    NSLog(@"SCORE : %d", score);
+    NSLog(@"⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙  SCORE : %d   ⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙⍙", score);
     score = 0;
 }
-
-
-    
-
 
 @end

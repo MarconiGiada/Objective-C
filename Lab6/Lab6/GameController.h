@@ -14,8 +14,9 @@
 @property (nonatomic, strong) NSMutableArray *displayDice;
 - (void) roll;
 - (void) displayCurrentDeck;
+- (void) holdDie: (NSUInteger) die;
+- (void) resetDice;
+- (void) holdAll;
 - (void) displayScore;
-
-
 
 @end
