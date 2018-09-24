@@ -10,7 +10,8 @@
 
 @interface Contact : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *email;
-- (instancetype) initWithName: (NSString *) name andEmail: (NSString *) email;
+@property(nonatomic,strong)NSString *name;
+@property(nonatomic,strong)NSString *email;
+-(instancetype)initWithname:(NSString*)name andemail:(NSString*)email;
+
 @end

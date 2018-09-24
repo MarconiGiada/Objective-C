@@ -10,17 +10,17 @@
 
 @implementation Contact
 
-- (instancetype) initWithName: (NSString *) name andEmail: (NSString *) email
+-(instancetype)initWithname:(NSString*)name andemail:(NSString*)email
 {
-    self = [super init];
-    if(self) {
+    self=[super init];
+    if(self){
         _name = name;
         _email = email;
     }
     return self;
 }
--(NSString *) description
+-(NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@> ( %@) ", self.name, self.email];
-}
-@end
+    return [NSString stringWithFormat:@"<%@>(%@)",self.name,self.email];
+    
+}@end
